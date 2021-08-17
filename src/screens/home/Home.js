@@ -156,19 +156,17 @@ class Home extends Component {
       queryString += "&end_date=" + this.state.releaseDateEnd;
     }
 
-    fetch(
-      "http://localhost:8085/api/v1/movies?page=1&limit=10" +
-        encodeURI(queryString),
-      {
-        method: "GET",
-      }
-    )
+    fetch( "http://localhost:8085/api/v1/movies?page=1&limit=10" +
+    encodeURI(queryString), {
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => {
         this.setState({
-          releasedMovies: data.movies,
+            releasedMovies: data.movies,
         });
       });
+
   };
 
   render() {
@@ -337,3 +335,4 @@ class Home extends Component {
 }
 
 export default withStyles(styles)(Home);
+
